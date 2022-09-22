@@ -40,6 +40,12 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
+								<div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">View Password</label>
+                                            </div>
+                                        </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </a>
