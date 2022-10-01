@@ -67,11 +67,30 @@ Class model_saldo_in extends CI_Model
 
 	public function approval_saldo()
 	{
+		$email = $this->session->userdata('email');
+		$current_user = $this->db->get_where('users', ['email' => $email])->row_array();
+		$id_current_user = $current_user['id_user'];
+
 		$id_in = $this->input->post('id_in');
+
+		$id_cek = [
+			'id_in' => $id_in
+		];
+		$this->db->where($id_cek);
+		$cek_approve = $this->db->get('saldo_in')->row_array();
+
+		$data_history = [
+			'id_user' => $cek_approve['id_user'],
+			'id_saldo' => 1,
+			'saldo' => $cek_approve['saldo_in'],
+			'status' => 1,
+			'remark' => "top up"
+		];
+		$this->db->insert('history', $data_history);
+
 		$data = [
 			'status' => 1
 		];
-		
 		$this->db->where('id_in', $id_in);
 		return $this->db->update('saldo_in', $data);
 	}
@@ -137,6 +156,17 @@ Class model_saldo_in extends CI_Model
 		$this->db->where($data);
 		$this->db->order_by('id_in', 'DESC');
 		return $this->db->get('saldo_in')->result_array();
+	}
+
+	public function sum_saldo_in()
+	{
+		$data = [
+			'status' => 1
+		];
+
+		$this->db->select_sum('saldo_in');
+		$this->db->where($data);
+		return $this->db->get('saldo_in')->row_array();
 	}
 
 }

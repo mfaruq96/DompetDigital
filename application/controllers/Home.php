@@ -13,5 +13,10 @@ class Home extends CI_Controller
 		$this->load->view('modal/modal_user');
 		// $this->load->view('layouts/auth_footer');
 	}
+
+	public function admin()
+	{
+		$this->load->view('home/admin');
+	}
 	
 }

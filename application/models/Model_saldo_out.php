@@ -15,6 +15,17 @@ Class model_saldo_out extends CI_Model
 		$id_va = $cek_va['id_va'];
 		$remark = $cek_va['remark'];
 
+		$cek_pay = $this->db->get_where('virtual_account', ['id_va' => $id_va])->row_array();
+
+		$data_history = [
+			'id_user' => $cek_pay['id_user'],
+			'id_saldo' => 2,
+			'saldo' => $cek_pay['saldo_out'],
+			'status' => 1,
+			'remark' => $cek_pay['remark']
+		];
+		$this->db->insert('history', $data_history);
+
 		$email = $this->session->userdata('email');
 		$current_user = $this->db->get_where('users', ['email' => $email])->row_array();
 		$id_current_user = $current_user['id_user'];

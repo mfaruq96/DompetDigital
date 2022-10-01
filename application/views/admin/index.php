@@ -2,64 +2,103 @@
                 <!-- Begin Page Content -->
                 <div class="container">
 
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">Admin</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+					</ol>
+				</nav>
+
 					<!-- fitur -->
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="card mb-4 bg-light">
 								<div class="card-body">
+
 									<div class="row m-4">
 
-										<!-- topup -->
-										<div class="col-lg-6 mb-5">
-											<a href="<?= base_url('admin/account'); ?>" style="width:100%; padding: 40px;" class="btn btn-primary">
-												<h4 class="text-center text-light">
-													<i class="fas fa-users"></i>
-													ACCOUNT
-												</h4>
-												<h5>
-													<?= $count_user; ?>
-												</h5>
-											</a>
+										<!-- card -->
+										<div class="col-lg-6 mb-4">
+											<div class="card border-left-primary shadow h-100 py-2">
+												<div class="card-body">
+													<div class="row no-gutters align-items-center">
+														<div class="col mr-2">
+															<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+																Account</div>
+															<div class="h5 mb-0 font-weight-bold text-gray-800">
+																<?= $count_user; ?>
+															</div>
+														</div>
+														<div class="col-auto">
+															<i class="fas fa-users fa-2x text-gray-300"></i>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<!-- card -->
+										<div class="col-lg-6 mb-4">
+											<div class="card border-left-primary shadow h-100 py-2">
+												<div class="card-body">
+													<div class="row no-gutters align-items-center">
+														<div class="col mr-2">
+															<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+																Request Saldo</div>
+															<div class="h5 mb-0 font-weight-bold text-gray-800">
+																<?= $count_request_saldo; ?>
+															</div>
+														</div>
+														<div class="col-auto">
+															<i class="fas fa-hand-holding-usd fa-2x text-gray-300"></i>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 
-										<!-- request saldo -->
-										<div class="col-lg-6 mb-5">
-											<a href="<?= base_url('admin/request_saldo'); ?>" style="width:100%; padding: 40px;" class="btn btn-primary">
-												<h4 class="text-center text-light">
-													<i class="fas fa-hand-holding-usd"></i>
-													REQUEST SALDO
-												</h4>
-												<h5>
-													<?= $count_request_saldo; ?>
-												</h5>
-											</a>
+										<!-- card -->
+										<div class="col-lg-6 mb-4">
+											<div class="card border-left-success shadow h-100 py-2">
+												<div class="card-body">
+													<div class="row no-gutters align-items-center">
+														<div class="col mr-2">
+															<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+																Saldo In</div>
+															<div class="h5 mb-0 font-weight-bold text-gray-800">
+																Rp. <?= number_format($sum_saldo_in['saldo_in']); ?>,-
+															</div>
+														</div>
+														<div class="col-auto">
+															<i class="fas fa-hand-holding-medical fa-2x text-gray-300"></i>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 
-										<!-- saldo in -->
-										<div class="col-lg-6 mb-5">
-											<a href="<?= base_url('admin/saldo_in'); ?>" style="width:100%; padding: 40px;" class="btn btn-primary">
-												<h4 class="text-center text-light">
-													<i class="fas fa-hand-holding-medical"></i>
-														SALDO IN
-												</h4>
-												<h5>
-													<?= $count_saldo_in; ?>
-												</h5>
-											</a>
-										</div>
-
-										<!-- saldo out -->
-										<div class="col-lg-6 mb-5">
-											<a href="" style="width:100%; padding: 40px;" class="btn btn-primary" data-toggle="modal" data-target="#modalHistory">
-												<h4 class="text-center text-light">
-													<i class="fas fa-donate"></i>
-														SALDO OUT
-												</h4>
-												<h5>12</h5>
-											</a>
+										<!-- card -->
+										<div class="col-lg-6 mb-4">
+											<div class="card border-left-danger shadow h-100 py-2">
+												<div class="card-body">
+													<div class="row no-gutters align-items-center">
+														<div class="col mr-2">
+															<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+																Saldo Out</div>
+															<div class="h5 mb-0 font-weight-bold text-gray-800">
+																Rp. <?= number_format($sum_saldo_out['saldo_out']); ?>,-
+															</div>
+														</div>
+														<div class="col-auto">
+															<i class="fas fa-donate fa-2x text-gray-300"></i>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 
 									</div>
+									
 								</div>
 							</div>
 						</div>

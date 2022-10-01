@@ -40,7 +40,7 @@
 
 										<!-- history -->
 										<div class="col-lg-6 mb-5">
-											<a href="" style="width:100%; padding: 40px;" class="btn btn-primary" data-toggle="modal" data-target="#modalHistory">
+											<a href="<?= base_url('user/history'); ?>" style="width:100%; padding: 40px;" class="btn btn-primary">
 												<h4 class="text-center text-light mt-4 mb-4">
 													<i class="fas fa-history"></i>
 														HISTORY

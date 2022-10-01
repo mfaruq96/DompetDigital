@@ -52,4 +52,25 @@ Class model_virtual_account extends CI_Model
 		return $this->db->get('virtual_account')->result_array();
 	}
 
+	public function sum_saldo_out()
+	{
+		$data = [
+			'status' => 1
+		];
+
+		$this->db->select_sum('saldo_out');
+		$this->db->where($data);
+		return $this->db->get('virtual_account')->row_array();
+	}
+
+	public function get_all()
+    {
+		$query = "SELECT `virtual_account`.*, `users`.`name`
+                    FROM `virtual_account`
+					JOIN `users`
+                    ON `virtual_account`.`id_user` = `users`.`id_user`
+                    ";
+        return $this->db->query($query)->result_array();
+    }
+
 }

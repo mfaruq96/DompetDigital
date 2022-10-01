@@ -1,6 +1,22 @@
+		<!-- Content Wrapper -->
+		<?php if( $current_user['id_role'] == 2 ) : ?>
+		<div id="content-wrapper" class="d-flex flex-column bg-primary">
+		<?php else: ?>
+		<div id="content-wrapper" class="d-flex flex-column bg-secondary">
+		<?php endif; ?>
+
+			<!-- Main Content -->
+			<div id="content">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<?php if( $current_user['id_role'] == 1 ) : ?>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+					<?php endif; ?>
 
                     <!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -51,12 +67,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $current_user['name'] . " (" . $current_user['role'] . ")"; ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="<?= base_url('assets/'); ?>img/undraw_profile.svg">
+                                    src="<?= base_url('assets/img/profile/').$current_user['image']; ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?= base_url('profile'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

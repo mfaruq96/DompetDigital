@@ -4,8 +4,8 @@
 
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">Admin</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Saldo In</li>
+				<li class="breadcrumb-item"><a href="<?= base_url('user'); ?>">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">History</li>
 			</ol>
 		</nav>
 
@@ -17,8 +17,8 @@
 						<div class="row m-4">
 							<div class="col-lg-12">
 								<h1 class="mb-5">
-									<i class="fas fa-hand-holding-medical"></i>
-									Saldo In
+									<i class="fas fa-history"></i>
+									History
 								</h1>
 
 								<?= $this->session->flashdata('message'); ?>
@@ -28,31 +28,38 @@
 										<thead>
 											<tr>
 												<th class="text-center">No</th>
-												<th class="text-center">Name</th>
-												<th class="text-center">Saldo In</th>
+												<th class="text-center">Saldo Name</th>
+												<th class="text-center">Saldo</th>
 												<th class="text-center">Status</th>
+												<th class="text-center">Date</th>
+												<th class="text-center">Remark</th>
 											</tr>
 										</thead>
 										<tbody>
 											<?php $i = 1; ?>
-											<?php foreach( $get_all_in as $get_saldo ) : ?>
+											<?php foreach( $get_history as $history ) : ?>
 											<tr>
 												<td>
 													<?= $i++; ?>
 												</td>
 												<td>
-													<?= $get_saldo['name']; ?>
-												</td>
-												<td>
-													Rp. <?= number_format($get_saldo['saldo_in']); ?>,-
-												</td>
-												<td>
-													<?php if ( $get_saldo['status'] == 1 ) {
-														echo "Success";
-													} else {
-														echo "Pending";
-													}
+													<?php
+														if( $history['id_saldo'] == 1 ) {
+															echo "Saldo In";
+														} else {
+															echo "Saldo Out";
+														}
 													?>
+												</td>
+												<td>
+													Rp. <?= number_format($history['saldo']); ?>,-
+												</td>
+												<td>Success</td>
+												<td>
+													<?= date('F d, Y H:i', strtotime($history['created_at'])); ?>
+												</td>
+												<td>
+													<?= $history['remark']; ?>
 												</td>
 											</tr>
 											<?php endforeach; ?>

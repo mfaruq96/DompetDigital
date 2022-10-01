@@ -17,7 +17,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 				</form>
         </div>
@@ -40,10 +40,39 @@
 						<label for="token">Token Virtual Account</label>
 						<input type="number" class="form-control" id="token" name="token">
 					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" id="current_password" name="current_password">
+					</div>
+					<?php foreach( $get_out_false as $get_out ) : ?>
+
+					<div class="card mb-2 shadow-sm">
+						<div class="card-body">
+							<div class="d-flex align-items-center" href="#">
+								<div class="mr-3">
+									<div class="icon-circle bg-success">
+										<i class="fas fa-money-bill-wave text-white"></i>
+									</div>
+								</div>
+								<div>
+									<div class="small text-gray-500">
+										<?= date('F d, Y H:i', strtotime($get_out['created_at'])); ?>
+									</div>
+									<?= $get_out['token_va']; ?>
+									</br>
+									Rp. <?= number_format($get_out['saldo_out']); ?>,-
+									</br>
+									<?= $get_out['remark']; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<?php endforeach; ?>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 				</form>
         </div>
@@ -94,7 +123,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 			</div>
         </div>
@@ -132,6 +161,8 @@
 							<?= $get_out['token_va']; ?>
 							</br>
 							Rp. <?= number_format($get_out['saldo_out']); ?>,-
+							</br>
+							<?= $get_out['remark']; ?>
 						</div>
 					</div>
 				</div>
@@ -164,7 +195,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="modalNotifTopup">REQUEST TOPUP</h5>
+            <h5 class="modal-title" id="modalNotifTopup">REQUEST TOP UP</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>

@@ -59,6 +59,48 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
+	<!-- DataTables -->
+    <script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    
+	<!-- Script show password -->
+    <script type="text/javascript">
+		$('#check').click(function(){
+			if('password' == $('#test-input').attr('type')){
+				$('#test-input').prop('type', 'text');
+			}else{
+				$('#test-input').prop('type', 'password');
+			}
+		});
+	</script>
+    <!-- End Script show password -->
+
+	<!-- Custom -->
+    <script>
+        // Script for text choose file
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html
+            (fileName);
+        });
+    </script>
+
+	<!-- export data -->
+	<script>
+        $(document).ready(function() {
+            $('#dompetTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf'
+                ]
+            });
+        });
+    </script>
+
 </body>
 
 </html>

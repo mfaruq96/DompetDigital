@@ -5,7 +5,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">Admin</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Saldo In</li>
+				<li class="breadcrumb-item active" aria-current="page">Saldo Out</li>
 			</ol>
 		</nav>
 
@@ -17,8 +17,8 @@
 						<div class="row m-4">
 							<div class="col-lg-12">
 								<h1 class="mb-5">
-									<i class="fas fa-hand-holding-medical"></i>
-									Saldo In
+									<i class="fas fa-donate"></i>
+									Saldo Out
 								</h1>
 
 								<?= $this->session->flashdata('message'); ?>
@@ -29,7 +29,7 @@
 											<tr>
 												<th class="text-center">No</th>
 												<th class="text-center">Name</th>
-												<th class="text-center">Saldo In</th>
+												<th class="text-center">Saldo Out</th>
 												<th class="text-center">Status</th>
 											</tr>
 										</thead>
@@ -44,7 +44,7 @@
 													<?= $get_saldo['name']; ?>
 												</td>
 												<td>
-													Rp. <?= number_format($get_saldo['saldo_in']); ?>,-
+													Rp. <?= number_format($get_saldo['saldo_out']); ?>,-
 												</td>
 												<td>
 													<?php if ( $get_saldo['status'] == 1 ) {

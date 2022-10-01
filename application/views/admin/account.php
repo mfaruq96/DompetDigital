@@ -24,13 +24,13 @@
 								<?= $this->session->flashdata('message'); ?>
 
 								<div class="table-responsive">
-									<table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+									<table class="table table-bordered text-center" id="dompetTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
-												<th>No</th>
-												<th>Name</th>
-												<th>Email</th>
-												<th>Role</th>
+												<th class="text-center">No</th>
+												<th class="text-center">Name</th>
+												<th class="text-center">Email</th>
+												<th class="text-center">Role</th>
 											</tr>
 										</thead>
 										<tbody>
