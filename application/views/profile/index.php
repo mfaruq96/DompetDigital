@@ -49,11 +49,11 @@
 															<p class="card-text" style="text-align: right;"><small class="text-muted">Member since <?= date('F d, Y', strtotime($current_user['created_at'])); ?></small></p>
 														</div>
 														<div class="card-body shadow-sm">
-															<a href="<?= base_url('profile/edit_profile'); ?>" class="btn btn-primary btn-sm">
+															<a href="<?= base_url('profile/edit_profile'); ?>" class="btn btn-primary btn-sm mb-2">
 																<i class="fas fa-sm fa-user-edit"></i>
 																Edit profile
 															</a>
-															<a href="<?= base_url('profile/change_password'); ?>" class="btn btn-primary btn-sm">
+															<a href="<?= base_url('profile/change_password'); ?>" class="btn btn-primary btn-sm mb-2">
 																<i class="fas fa-sm fa-user-cog"></i>
 																Change password
 															</a>

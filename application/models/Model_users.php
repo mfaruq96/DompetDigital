@@ -19,7 +19,7 @@ Class model_users extends CI_Model
 		$data = [
 			'name' => htmlspecialchars($this->input->post('fullname', true)),
 			'email' => htmlspecialchars($this->input->post('email', true)),
-			'image' => 'default.jpg',
+			'image' => 'default.svg',
 			'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 			'id_role' => htmlspecialchars($this->input->post('role', true)),
 			'is_active' => 1
